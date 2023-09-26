@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class UserRegistrationDto {
-    private Integer userId;
+    private Long userId;
     private String name;
     private String phoneNumber;
     private String birthDay;
 
     // 세터
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

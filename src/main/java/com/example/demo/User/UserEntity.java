@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 public class UserEntity {
     @Id
-    private Integer userId;
+    private Long userId;
 
     @Column
     private String name;
