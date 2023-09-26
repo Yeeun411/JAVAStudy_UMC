@@ -34,10 +34,10 @@ public class UserRegistrationDto {
     @Override
     public String toString() {
         return "UserRegistrationDto{" +
-                "userId=" + userId +
-                ", name='" + name + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", birthDay='" + birthDay + '\'' +
+                "userId : " + userId +
+                ", name : '" + name + '\'' +
+                ", phoneNumber : '" + phoneNumber + '\'' +
+                ", birthDay : '" + birthDay + '\'' +
                 '}';
     }
 }
