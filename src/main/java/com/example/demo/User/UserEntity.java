@@ -12,6 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserEntity {
+
     @Id
     private Long userId;
 
