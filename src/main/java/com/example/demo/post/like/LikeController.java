@@ -9,19 +9,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/likes")
 @RequiredArgsConstructor
 public class LikeController {
-
     private final LikeService likeService;
 
-    @PostMapping("/{postId}/user/{userId}")
-    public ResponseEntity<Void> addLike(@PathVariable Long userId, @PathVariable Long postId) {
-        likeService.addLike(userId, postId);
+    @PostMapping("/add")
+    public ResponseEntity<Void> addLike(@RequestBody LikeDto likeDto) {
+        likeService.addLike(likeDto.getUserId(), likeDto.getPostId());
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/{postId}/user/{userId}")
-    public ResponseEntity<Void> removeLike(@PathVariable Long userId, @PathVariable Long postId) {
-        likeService.removeLike(userId, postId);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    @PostMapping("/remove")
+    public ResponseEntity<Void> removeLike(@RequestBody LikeDto likeDto) {
+        likeService.removeLike(likeDto.getUserId(), likeDto.getPostId());
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
-
