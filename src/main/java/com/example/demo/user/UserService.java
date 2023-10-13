@@ -1,5 +1,6 @@
-package com.example.demo.User;
+package com.example.demo.user;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    @Transactional
     public UserEntity registerUser(UserRegistrationDto dto) {
         UserEntity user = new UserEntity();
         user.setUserId(dto.getUserId());
@@ -21,15 +23,18 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    @Transactional
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public Optional<UserEntity> getUserById(Integer id) {
+    @Transactional
+    public Optional<UserEntity> getUserById(Long id) {
         return userRepository.findById(id);
     }
 
-    public UserEntity updateUser(Integer id, UserRegistrationDto dto) {
+    @Transactional
+    public UserEntity updateUser(Long id, UserRegistrationDto dto) {
         UserEntity user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found"));
         user.setName(dto.getName());
         user.setPhoneNumber(dto.getPhoneNumber());
@@ -37,7 +42,8 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public void deleteUser(Integer id) {
+    @Transactional
+    public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
 }

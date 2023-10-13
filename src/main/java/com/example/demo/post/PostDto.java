@@ -1,4 +1,4 @@
-package com.example.demo.Post;
+package com.example.demo.post;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

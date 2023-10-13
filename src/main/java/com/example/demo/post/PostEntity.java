@@ -1,6 +1,6 @@
-package com.example.demo.Post;
+package com.example.demo.post;
 
-import com.example.demo.User.UserEntity;
+import com.example.demo.user.UserEntity;
 import jakarta.persistence.*;
 
 import lombok.Getter;

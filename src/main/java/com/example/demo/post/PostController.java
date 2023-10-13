@@ -1,4 +1,4 @@
-package com.example.demo.Post;
+package com.example.demo.post;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,10 +19,15 @@ public class PostController {
         return new ResponseEntity<>(postService.createPost(dto), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePost(@PathVariable Long id) {
-        postService.deletePost(id);
+    @DeleteMapping("/{title}")
+    public ResponseEntity<Void> deletePost(@PathVariable String title) {
+        postService.deletePost(title);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/title/{title}")
+    public ResponseEntity<List<PostDto>> putPostsByTitle(@PathVariable String title, @RequestBody PostDto dto){
+        return new ResponseEntity<>(postService.putPostsByTitle(title, dto), HttpStatus.OK);
     }
 
     @GetMapping("/title/{title}")
@@ -31,4 +36,3 @@ public class PostController {
     }
 
 }
-
