@@ -25,5 +25,14 @@ public class UserEntity {
 
     @Column
     private String birthDay;
+
+    @Column(name = "EMAIL")
+    private String email;
+    
+    @Column(name = "PASSWORD")
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Authority authority;
 }
 
